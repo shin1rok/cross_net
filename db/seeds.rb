@@ -1,10 +1,19 @@
+require 'csv'
+
+Prefecture.delete_all if Prefecture.exists?
+prefectures_table = CSV.table('db/csv/prefectures.csv')
+prefectures_table.each do |row|
+  Prefecture.create!(id: row[:code],
+                     name: row[:name])
+end
+
 # FIXME ここに書くべきではない
 Program.delete_all if Program.exists?
 Gymnasium.delete_all if Gymnasium.exists?
 30.times do |n|
   Gymnasium.create!(name:       "体育館名#{n}",
                     zip_code:   "0000000",
-                    prefecture: (0..46).to_a.sample,
+                    prefecture: (1..47).to_a.sample,
                     city:       "市町村区#{n}",
                     street:     "番地#{n}",
                     tell:       "0000000000",
