@@ -13,7 +13,7 @@ Gymnasium.delete_all if Gymnasium.exists?
 30.times do |n|
   Gymnasium.create!(name:       "体育館名#{n}",
                     zip_code:   "0000000",
-                    prefecture: (1..47).to_a.sample,
+                    prefecture_id: (1..47).to_a.sample,
                     city:       "市町村区#{n}",
                     street:     "番地#{n}",
                     tell:       "0000000000",

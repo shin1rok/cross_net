@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_072236) do
+ActiveRecord::Schema.define(version: 2019_01_12_123120) do
 
   create_table "gymnasia", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "zip_code", null: false
-    t.integer "prefecture", null: false
+    t.bigint "prefecture_id"
     t.string "city", null: false
     t.string "street", null: false
     t.string "tell", null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_072236) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["prefecture_id"], name: "index_gymnasia_on_prefecture_id"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -44,5 +45,6 @@ ActiveRecord::Schema.define(version: 2019_01_12_072236) do
     t.index ["gymnasium_id"], name: "index_programs_on_gymnasium_id"
   end
 
+  add_foreign_key "gymnasia", "prefectures"
   add_foreign_key "programs", "gymnasia"
 end
