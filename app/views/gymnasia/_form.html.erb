@@ -1,0 +1,67 @@
+<%= form_with(model: gymnasium, local: true) do |form| %>
+  <% if gymnasium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gymnasium.errors.count, "error") %> prohibited this gymnasium from being saved:</h2>
+
+      <ul>
+      <% gymnasium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip_code %>
+    <%= form.text_field :zip_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prefecture %>
+    <%= form.number_field :prefecture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tell %>
+    <%= form.text_field :tell %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :access %>
+    <%= form.text_area :access %>
+  </div>
+
+  <div class="field">
+    <%= form.label :court %>
+    <%= form.text_field :court %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

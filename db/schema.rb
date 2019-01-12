@@ -10,6 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_01_12_062247) do
+
+  create_table "gymnasia", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "zip_code", null: false
+    t.integer "prefecture", null: false
+    t.string "city", null: false
+    t.string "street", null: false
+    t.string "tell", null: false
+    t.string "url", null: false
+    t.text "access", null: false
+    t.string "court"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

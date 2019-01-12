@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gymnasia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Zip code</th>
+      <th>Prefecture</th>
+      <th>City</th>
+      <th>Street</th>
+      <th>Tell</th>
+      <th>Url</th>
+      <th>Access</th>
+      <th>Court</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gymnasia.each do |gymnasium| %>
+      <tr>
+        <td><%= gymnasium.name %></td>
+        <td><%= gymnasium.zip_code %></td>
+        <td><%= gymnasium.prefecture %></td>
+        <td><%= gymnasium.city %></td>
+        <td><%= gymnasium.street %></td>
+        <td><%= gymnasium.tell %></td>
+        <td><%= gymnasium.url %></td>
+        <td><%= gymnasium.access %></td>
+        <td><%= gymnasium.court %></td>
+        <td><%= gymnasium.note %></td>
+        <td><%= link_to 'Show', gymnasium %></td>
+        <td><%= link_to 'Edit', edit_gymnasium_path(gymnasium) %></td>
+        <td><%= link_to 'Destroy', gymnasium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gymnasium', new_gymnasium_path %>

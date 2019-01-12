@@ -1,0 +1,2 @@
+class Gymnasium < ApplicationRecord
+end
