@@ -13,13 +13,24 @@
           <div>
             <%= image_tag('free_gymnasium.jpg', class: 'img-thumbnail float-left w-50') %>
           </div>
+          <!--          TODO 画像の右側に配置する-->
           <div class="">
-            <p><%= gymnasium.zip_code %></p>
-            <p><%= gymnasium.prefecture.name + gymnasium.city + gymnasium.street %></p>
-            <p><%= gymnasium.tell %></p>
-            <p><%= gymnasium.url %></p>
-            <p><%= gymnasium.access %></p>
-            <p><%= gymnasium.court %></p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= gymnasium.zip_code %></li>
+              <li class="list-group-item"><%= gymnasium.prefecture.name + gymnasium.city + gymnasium.street %></li>
+              <li class="list-group-item"><%= gymnasium.tell %></li>
+              <li class="list-group-item"><%= gymnasium.url %></li>
+              <li class="list-group-item"><%= gymnasium.access %></li>
+              <li class="list-group-item"><%= gymnasium.court %></li>
+            </ul>
+            <% gymnasium.programs.each do |program| %>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <p><%= program.day %></p>
+                  <p><%= program.start_time %><%= program.end_time %></p>
+                </li>
+              </ul>
+            <% end %>
           </div>
           <%= link_to 'Show', gymnasium %>
           <%= link_to 'Edit', edit_gymnasium_path(gymnasium) %>
