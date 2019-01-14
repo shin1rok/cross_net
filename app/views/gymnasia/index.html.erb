@@ -26,7 +26,7 @@
             <% gymnasium.programs.each do |program| %>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  <p><%= program.day %></p>
+                  <p><%= t('date.day_names')[program.day] %></p>
                   <p><%= program.start_time %><%= program.end_time %></p>
                 </li>
               </ul>
