@@ -7,32 +7,23 @@
     <% @gymnasia.each do |gymnasium| %>
       <div class="card my-3">
         <div class="card-header">
-          <h2 class="card-title"><%= gymnasium.name %></h2>
+          <h2 class="card-title card-link"><%= link_to gymnasium.name, gymnasium %></h2>
         </div>
         <div class="card-body">
-          <div>
-            <%= image_tag('free_gymnasium.jpg', class: 'img-thumbnail float-left w-50') %>
-          </div>
-          <!--          TODO 画像の右側に配置する-->
-          <div class="">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><%= gymnasium.zip_code %></li>
-              <li class="list-group-item"><%= gymnasium.prefecture.name + gymnasium.city + gymnasium.street %></li>
-              <li class="list-group-item"><%= gymnasium.tell %></li>
-              <li class="list-group-item"><%= gymnasium.url %></li>
-              <li class="list-group-item"><%= gymnasium.access %></li>
-              <li class="list-group-item"><%= gymnasium.court %></li>
-            </ul>
-            <% gymnasium.programs.each do |program| %>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <p><%= t('date.day_names')[program.day] %></p>
-                  <p><%= program.start_time %><%= program.end_time %></p>
-                </li>
-              </ul>
-            <% end %>
-          </div>
-          <%= link_to 'Show', gymnasium %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= gymnasium.zip_code %></li>
+            <li class="list-group-item"><%= gymnasium.prefecture.name + gymnasium.city + gymnasium.street %></li>
+            <li class="list-group-item"><%= gymnasium.tell %></li>
+            <li class="list-group-item"><%= gymnasium.url %></li>
+            <li class="list-group-item"><%= gymnasium.access %></li>
+            <li class="list-group-item"><%= gymnasium.court %></li>
+            <li class="list-group-item">
+              <% gymnasium.programs.each do |program| %>
+                <p><%= t('date.day_names')[program.day] %></p>
+                <p><%= program.start_time %><%= program.end_time %></p>
+              <% end %>
+            </li>
+          </ul>
           <%= link_to 'Edit', edit_gymnasium_path(gymnasium) %>
           <%= link_to 'Destroy', gymnasium, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
