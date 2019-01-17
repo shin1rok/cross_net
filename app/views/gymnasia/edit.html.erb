@@ -1,6 +1,15 @@
-<h1>Editing Gymnasium</h1>
-
-<%= render 'form', gymnasium: @gymnasium %>
-
-<%= link_to 'Show', @gymnasium %> |
-<%= link_to 'Back', gymnasia_path %>
+<main>
+  <div class="container">
+    <h1>Editing Gymnasium</h1>
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title"><%= @gymnasium.name %></h2>
+      </div>
+      <div class="card-body">
+        <%= render 'form', gymnasium: @gymnasium %>
+        <%= link_to 'Show', @gymnasium %> |
+        <%= link_to 'Back', gymnasia_path %>
+      </div>
+    </div>
+  </div>
+</main>
