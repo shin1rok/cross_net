@@ -1,4 +1,4 @@
-<%= form_with(model: gymnasium, local: true) do |form| %>
+<%= form_with(model: @gymnasium, local: true) do |form| %>
   <% if gymnasium.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(gymnasium.errors.count, "error") %> prohibited this gymnasium from being saved:</h2>
@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :prefecture_id %>
-    <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name) %>
+    <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, selected: @gymnasium.prefecture_id || DEFAULTS::PREFECTURE) %>
   </div>
 
   <div class="field">
