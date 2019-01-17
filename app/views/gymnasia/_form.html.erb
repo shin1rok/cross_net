@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :prefecture_id %>
-    <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, selected: @gymnasium.prefecture_id || DEFAULTS::PREFECTURE) %>
+    <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, selected: @gymnasium.selected_prefecture) %>
   </div>
 
   <div class="field">
