@@ -29,3 +29,4 @@ Gymnasium.all.each do |gymnasium|
                                end_time:   '21:00')
   end
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
