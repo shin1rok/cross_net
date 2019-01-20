@@ -21,7 +21,6 @@
       </div>
     </div>
     <h1>Gymnasia</h1>
-    <%= link_to 'New Gymnasium', new_gymnasium_path %>
     <% @gymnasia.each do |gymnasium| %>
       <div class="card my-3">
         <div class="card-header">
@@ -42,8 +41,6 @@
               <% end %>
             </li>
           </ul>
-          <%= link_to 'Edit', edit_gymnasium_path(gymnasium) %>
-          <%= link_to 'Destroy', gymnasium, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
     <% end %>
