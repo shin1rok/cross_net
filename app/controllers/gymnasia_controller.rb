@@ -4,7 +4,10 @@ class GymnasiaController < ApplicationController
   # GET /gymnasia
   # GET /gymnasia.json
   def index
-    @gymnasia = Gymnasium.all.includes(:prefecture)
+    # TODO
+    # @search_form = GymnasiumSearchForm.new(params[:search])
+    # @gymnasia = @search_form.search
+    @gymnasia = Gymnasium.all
   end
 
   # GET /gymnasia/1
@@ -69,6 +72,20 @@ class GymnasiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gymnasium_params
-      params.require(:gymnasium).permit(:name, :zip_code, :prefecture_id, :city, :street, :tell, :url, :access, :court, :note)
+      params.require(:gymnasium).permit(:name,
+                                        :zip_code,
+                                        :prefecture_id,
+                                        :city,
+                                        :street,
+                                        :tell,
+                                        :url,
+                                        :access,
+                                        :court,
+                                        :note,
+                                        :search)
     end
+
+  def gymnasium_search_form_params
+    params.require(:gymnasium_search_form).permit(:prefecture_id)
+  end
 end
