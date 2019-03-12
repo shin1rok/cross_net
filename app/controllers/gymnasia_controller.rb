@@ -4,7 +4,7 @@ class GymnasiaController < ApplicationController
   # GET /gymnasia
   # GET /gymnasia.json
   def index
-    @search_form = GymnasiumSearchForm.new(params[:gymnasium_search_form])
+    @search_form = GymnasiumSearchForm.new(gymnasium_search_form)
     @gymnasia    = @search_form.search
   end
 
@@ -33,4 +33,8 @@ class GymnasiaController < ApplicationController
                                         :court,
                                         :note)
     end
+
+  def gymnasium_search_form
+    params.fetch(:gymnasium_search_form, {}).permit(:prefecture_id)
+  end
 end

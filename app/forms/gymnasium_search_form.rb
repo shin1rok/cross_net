@@ -1,12 +1,8 @@
 class GymnasiumSearchForm
-  extend ActiveModel::Naming
+  include ActiveModel::Model
+  include ActiveModel::Attributes
 
-  attr_accessor :prefecture_id
-
-  def initialize(params)
-    return if params.nil?
-    @prefecture_id = params[:prefecture_id]
-  end
+  attribute :prefecture_id, :integer
 
   def search
     Gymnasium.all
